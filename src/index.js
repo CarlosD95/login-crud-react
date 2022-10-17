@@ -5,7 +5,7 @@ import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Administrador from './pages/Administrador';
+import Dashboard from './pages/Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -15,8 +15,8 @@ root.render(
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='/Login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/administrador' element={<Administrador />} />
+        <Route path='/Register' element={<Register />} />
+        <Route path='/Dashboard' element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

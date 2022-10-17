@@ -20,11 +20,11 @@ export default function App() {
             </li>
             <li class='p-2'>
               <i class="bi bi-upload mx-3"></i>
-              <Link class='text-decoration-none' to='/register'>Register</Link>
+              <Link class='text-decoration-none' to='/Register'>Register</Link>
             </li>
             <li class='p-2'>
               <i class="bi bi-unlock-fill mx-3"></i>
-              <Link class='text-decoration-none' to='/administrador'>Administrador</Link>
+              <Link class='text-decoration-none' to='/Dashboard'>Dashboard</Link>
             </li>
           </ul>
         </nav>

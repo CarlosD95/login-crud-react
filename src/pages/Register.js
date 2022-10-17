@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Logo from '../assets/Logo.png';
-import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 import { v4 as uuid } from 'uuid';
 import Footer from '../components/Footer';
 import validator from 'validator';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
 
@@ -114,9 +114,7 @@ const Register = () => {
 
   return (
     <div class="container d-grid justify-content-center align-items-center h-100" >
-      <Link to='/'>
-        <img src={Logo} alt='Logo' class="rounded mx-auto d-block" style={{height: '150px'}}/>
-      </Link>
+      <Header />
       <h1 class='mx-auto mt-4'>Create an account</h1>
       <form className='form-principal' onSubmit={handleSubmit} >
         <div>
@@ -169,7 +167,7 @@ const Register = () => {
         </div>
        <br></br>
         <div class='mx-auto'>
-            <button type="submit" class="btn btn-success btn-lg" >Register User</button>
+            <button type="submit" class="btn btn-success btn-lg" >Register User</button> {" "}
             <Link to='/'>
               <button type="submit" class="btn btn-info btn-lg">Go to home</button>
             </Link>

@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Logo from '../assets/Logo.png';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Graph from '../components/Graph';
 import { Table, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup } from 'reactstrap';
 import { v4 as uuid } from 'uuid';
 import validator from 'validator';
-import LineGraph from "@chartiful/react-line-graph";
-
 
 const data = JSON.parse(window.localStorage.getItem('data'));
 
-const Administrador = () => {
+const Dashboard = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -164,7 +162,6 @@ function handleEdit(e){
 
 function handleDelete(id) {
 
-
     const deleteUser = validate.filter((item) => {
       return item.id !== id;
     })
@@ -172,20 +169,12 @@ function handleDelete(id) {
     localStorage.setItem('data', JSON.stringify(deleteUser));
     alert ('Delete User Successful')
     window.location.reload(true);
-
 }
 
   if (window.localStorage.data === undefined) {
     return (
       <div>
-        <Link to="/">
-          <img
-            src={Logo}
-            alt="Logo"
-            class="rounded mx-auto d-block mt-4"
-            style={{ height: "150px" }}
-          />
-        </Link>
+        <Header />
         <Button class="mx-auto d-block" color="primary" onClick={handleShow}>
           Create New User
         </Button>
@@ -214,35 +203,7 @@ function handleDelete(id) {
             </tr>
           </tbody>
         </Table>
-        <div class="container d-grid justify-content-center align-items-center h-100 mt-4">
-          <h2>Number of visits to the web, in the last months </h2>
-
-          <LineGraph
-            data={[10, 150, 70, 40, 37, 22, 100, 65]}
-            width={600}
-            height={300}
-            lineColor="#347975"
-            dotColor="#347975"
-            lineWidth={3}
-            isBezier
-            hasDots={true}
-            baseConfig={{
-              startAtZero: false,
-              hasXAxisBackgroundLines: false,
-              xAxisLabelStyle: {
-                prefix: '',
-                offset: 0
-              }
-            }}
-            style={{
-              marginBottom: 30,
-              padding: 10,
-              paddingTop: 20,
-              borderRadius: 20,
-              backgroundColor: `#dbf0ef`
-            }}
-          />
-        </div>
+        <Graph />
         <Footer />
 
         <Modal isOpen={modal} onHide={handleClose}>
@@ -384,14 +345,7 @@ function handleDelete(id) {
   else {
     return (
       <div>
-        <Link to="/">
-          <img
-            src={Logo}
-            alt="Logo"
-            class="rounded mx-auto d-block mt-4"
-            style={{ height: "150px" }}
-          />
-        </Link>
+        <Header />
         <Button onClick={handleShow} color='primary'>Create New User</Button>
         <Table bordered borderless hover responsive>
           <thead>
@@ -416,36 +370,7 @@ function handleDelete(id) {
             )}
           </tbody>
         </Table>
-
-        <div class="container d-grid justify-content-center align-items-center h-100 mt-4">
-          <h2>Number of visits to the web, in the last months </h2>
-
-          <LineGraph
-            data={[10, 150, 70, 40, 37, 22, 100, 65]}
-            width={600}
-            height={300}
-            lineColor="#347975"
-            dotColor="#347975"
-            lineWidth={3}
-            isBezier
-            hasDots={true}
-            baseConfig={{
-              startAtZero: false,
-              hasXAxisBackgroundLines: false,
-              xAxisLabelStyle: {
-                prefix: '',
-                offset: 0
-              }
-            }}
-            style={{
-              marginBottom: 30,
-              padding: 10,
-              paddingTop: 20,
-              borderRadius: 20,
-              backgroundColor: `#dbf0ef`
-            }}
-          />
-        </div>
+        <Graph />
         <Footer />
 
         <Modal isOpen={modal} onHide={handleClose}>
@@ -520,5 +445,5 @@ function handleDelete(id) {
   }
 }
 
-export default Administrador
+export default Dashboard
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Logo from '../assets/Logo.png'
-import { Link } from 'react-router-dom';
 import Footer from '../components/Footer'
 import validator from 'validator';
+import Header from '../components/Header';
+import { Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -47,9 +47,7 @@ const Login = () => {
 
   return (
     <div class="container d-grid justify-content-center align-items-center h-100" >
-      <Link to='/'>
-        <img src={Logo} alt='Logo' class="rounded mx-auto d-block" style={{height: '150px'}}/>
-      </Link>
+      <Header />
       <h1 class='mx-auto mt-4'>Please Log In</h1>
       <form className='form-principal' onSubmit={handleSubmit}>
         <div>
@@ -82,7 +80,7 @@ const Login = () => {
         </div>
         <br></br>
         <div>
-            <button type="submit" class="btn btn-primary btn-lg">Login</button>
+            <button type="submit" class="btn btn-primary btn-lg">Login</button>{" "}
             <Link to='/register'>
               <button type="button" class="btn btn-success btn-lg">Register</button>
             </Link>
